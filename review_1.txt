@@ -1,0 +1,32 @@
+
+Drawbacks:
+1. The abstract and introduction discuss divergent MobileNetV3 behavior, yet the results, tables, and figures presented are LCNet-only. This creates a mismatch between claims and evidence.
+Removed MobileNetV3 mention
+
+2. Section 5 looks like Results, not the Methodology.
+DONE
+
+3. If the hybrid introduces a 4-D bottleneck and an extra projection, the classical comparators should include parameter-matched or bottleneck-matched baselines.
+???
+
+4. Means and standard deviations are reported across folds, but there are no significance tests or confidence intervals. Several CIFAR-10 deltas are ~0.5-1.0% and may be due to noise.
+This is mentioned in results section.
+
+5. On DermaMNIST, accuracy/AUC are reported, but clinically relevant diagnostics are only mentioned, not shown. Given class imbalance and clinical framing, calibration and class-wise performance are important.
+????
+
+6. The paper could better situate itself against recent HNN/QML for medical imaging and clarify nomenclature. Additionally, LCNet scales up to 150/200, which appears in the results but is not introduced earlier in the methods section.
+Added 150/200 mention.
+
+Recommendations:
+1. Rename Section 5 to “Results”.
+DONE
+
+2. Add a compact schematic of each pipeline variant used. In each table, include a column stating which variant is being reported.
+Added pipelinse variants. Added a vatiant column
+
+3. Report 95% CIs across folds and run a paired significance test for hybrid vs. classical per backbone/scale. Mark significance on plots. This will clarify which gains of ~0.5-1.0% are robust.
+???
+
+4. List all hyperparameters, number of trainable PQC parameters, seeds, and stopping criteria. Include hardware details and wall-clock training/inference times to contextualize practicality.
+Added to a workflow section.

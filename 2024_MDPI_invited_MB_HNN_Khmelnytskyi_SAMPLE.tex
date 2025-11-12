@@ -137,18 +137,18 @@ Ukraine; ars4899@gmail.com (A.K.); gord@comsys.kpi.ua (Y.G.); stirenko@comsys.kp
 {
     %MDPI: This journals' Abstract should be structured to contain the subheadings, please check and revise.
     \textbf{Purpose:} 
-    While hybrid quantum-classical neural networks (HNNs) are a promising avenue for quantum advantage, the critical influence of the classical backbone architecture on their performance remains poorly understood. This study investigates the role of lightweight convolutional neural network architectures, focusing on MobileNetV3 and LCNet, in determining the stability, generalization, and effectiveness of hybrid models augmented with quantum layers for medical applications. The objective is to clarify the architectural compatibility between quantum and classical components and provide guidelines for backbone selection in hybrid designs.
+    While hybrid quantum-classical neural networks (HNNs) are a promising avenue for quantum advantage, the critical influence of the classical backbone architecture on their performance remains poorly understood. This study investigates the role of lightweight convolutional neural network architectures, focusing on LCNet, in determining the stability, generalization, and effectiveness of hybrid models augmented with quantum layers for medical applications. The objective is to clarify the architectural compatibility between quantum and classical components and provide guidelines for backbone selection in hybrid designs.
     \textbf{Methods:} 
-     We constructed HNNs by integrating a four-qubit quantum circuit (with trainable rotations) into scaled versions of MobileNetV3 (Small050, Small075, Small100) and LCNet (050, 075, 100). These models were rigorously evaluated on CIFAR-10 and MedMNIST using stratified 5-fold cross-validation, assessing accuracy, AUC, and robustness metrics. Performance was assessed with accuracy, macro- and micro-averaged area under the ROC curve (AUC), per-class accuracy, and out-of-fold (OoF) predictions to ensure unbiased generalization. In addition, training dynamics, confusion matrices, and performance stability across folds were analyzed to capture both predictive accuracy and robustness.
+     We constructed HNNs by integrating a four-qubit quantum circuit (with trainable rotations) into scaled versions of LCNet (050, 075, 100, 150, 200). These models were rigorously evaluated on CIFAR-10 and MedMNIST using stratified 5-fold cross-validation, assessing accuracy, AUC, and robustness metrics. Performance was assessed with accuracy, macro- and micro-averaged area under the ROC curve (AUC), per-class accuracy, and out-of-fold (OoF) predictions to ensure unbiased generalization. In addition, training dynamics, confusion matrices, and performance stability across folds were analyzed to capture both predictive accuracy and robustness.
     \textbf{Results:} 
-    The experiments revealed that backbone architecture and model size critically shape the outcomes of hybridization. LCNet hybrids consistently maintained strong performance across scaling levels: from LCNet050 to LCNet100, hybrid models preserved high macro-AUC (>0.95) and competitive accuracy, mirroring the expected scaling behavior of classical CNNs. \textit{The most consistent gains were observed at smaller and medium LCNet scales, where hybridization improved accuracy and stability across folds.} In contrast, MobileNetV3 hybrids demonstrated a reversal of classical trends. While larger classical MobileNet variants improved in accuracy, hybrid MobileNet models benefited only at the smallest scales (Small050 and Small075), where quantum layers enhanced accuracy by up to three percentage points. The largest variant (Small100) underperformed relative to its classical baseline, with unstable convergence and degraded AUC. This divergence indicates that hybrid networks do not necessarily follow the “bigger is better” paradigm of classical deep learning. Per-class analysis further showed that hybrids improved recognition in challenging categories, narrowing the gap between easy and difficult classes.
+    The experiments revealed a strong dependence of hybrid network performance on both backbone architecture and model scale. Across all tests, LCNet-based hybrids achieved the most consistent benefits, particularly at compact and medium configurations. From LCNet050 to LCNet100, hybrid models maintained high macro-AUC values exceeding 0.95 and delivered higher mean accuracies with lower variance across folds, confirming enhanced stability and generalization through quantum integration. On the DermaMNIST dataset, these hybrids achieved accuracy gains of up to seven percentage points and improved AUC by more than three points, demonstrating their robustness in imbalanced medical settings. However, as backbone complexity increased (LCNet150 and LCNet200), the classical architectures regained superiority, indicating that the advantages of quantum layers diminish with scale.  \textit{The most consistent gains were observed at smaller and medium LCNet scales, where hybridization improved accuracy and stability across folds.}  This divergence indicates that hybrid networks do not necessarily follow the “bigger is better” paradigm of classical deep learning. Per-class analysis further showed that hybrids improved recognition in challenging categories, narrowing the gap between easy and difficult classes.
     \textbf{Conclusion:} 
-    The findings demonstrate that the effectiveness of hybrid quantum–classical neural networks depends strongly on the underlying classical backbone for medical applications. LCNet architectures, with their lightweight and structured design, offer greater stability and adaptability for quantum integration compared to MobileNetV3. These results emphasize that architectural compatibility remains a decisive factor in realizing the potential of hybrid networks. Beyond specific backbones, this study contributes to a broader understanding of how quantum layers interact with classical models, paving the way for principled design of scalable and reliable hybrid architectures.
+    The study demonstrates that the performance and stability of hybrid quantum–classical neural networks are fundamentally determined by the characteristics of their classical backbones. Across extensive experiments on CIFAR-10 and DermaMNIST, LCNet-based hybrids consistently outperformed or matched their classical counterparts at smaller and medium scales, achieving higher accuracy and AUC along with notably reduced variability across folds. These improvements highlight the role of quantum layers as implicit regularizers that enhance learning stability and generalization—particularly in data-limited or imbalanced medical settings. However, the observed benefits diminished with increasing backbone complexity, as larger classical models regained superiority in both accuracy and convergence reliability. This indicates that hybrid architectures do not follow the conventional “larger-is-better” paradigm of classical deep learning. Overall, the results establish that architectural compatibility and model scale are decisive factors for effective quantum–classical integration. Lightweight backbones such as LCNet offer a robust foundation for realizing the advantages of hybridization in practical, resource-constrained medical applications, paving the way for future studies on scalable, hardware-efficient, and clinically reliable hybrid neural networks.
 }
 
 
 % Keywords
-\keyword{\textls[-15]{neural network; image classification; quantum transformation; data augmentation;} multi-backbone architecture; LCNet; MobileNetV3; CIFAR; hybrid neural network.} 
+\keyword{\textls[-15]{neural network; image classification; quantum transformation; data augmentation;} multi-backbone architecture; LCNet; CIFAR; DermaMNIST; hybrid neural network.} 
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -296,6 +296,14 @@ LCNet (Ma et al., 2022) represents a more recent architecture optimized for comp
 For both backbones, the last classical layer before the quantum circuit was implemented with a tanh activation to constrain outputs to (–1, 1), ensuring they aligned with the expected ranges of quantum gates. This detail was critical, as unconstrained values could destabilize quantum training. In both MobileNetV3 and LCNet, intermediate layers employed ReLU activations. The classification stage, shared across all models, consisted of a fully connected layer projecting quantum outputs into 10 logits, followed by softmax.
 By comparing multiple scales of MobileNetV3 and LCNet, we aimed to isolate how backbone complexity, parameter count, and architectural design influence the success of hybrid quantum integration.
 
+\begin{figure}[tbh!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures_new/FULL_CLASSIC_CVA_SINGLE_32_MB_1_CVA_Wimagenet_NODA_CIFAR10MAX_AUC_GRAPH.png}a) \\
+    \includegraphics[width=1\textwidth]{figures_new/FULL_HYBRID_Y_W4_S1_SINGLE_32_QC5_MB_1_LCNet050_TRIAL_02_NODA_CIFAR10_MAX_AUC_GRAPH.png}b)
+\caption{
+    The classic convolutional neural network (CNN)  (based on LCNet architecture) with the single input channel of the original images (a) and the hybrid neural network with 4 quanvolutional input channels (HNN-5QC).} \label{fig:models}
+\end{figure}
+
 
 \subsection{Workflow}
 
@@ -303,6 +311,15 @@ The rigorous workflow was implemented to ensure fair and robust comparison betwe
 This strategy provided several advantages. First, it mitigated overfitting by ensuring that evaluation was always performed on unseen data. Second, stratification preserved class balance across folds, which is essential for multiclass tasks such as CIFAR-10. Third, it enabled aggregation of predictions across all folds into a complete set of out-of-fold (OoF) predictions, which served as the basis for computing unbiased performance metrics.
 During training, models were optimized using stochastic gradient descent with appropriate learning rate scheduling. At the end of each epoch, validation accuracy, AUC, and loss were recorded. After five folds, OoF predictions were aggregated and used to compute final performance metrics, including overall accuracy, macro- and micro-averaged AUC, and per-class accuracy. Confusion matrices were also constructed to assess class-specific performance. 
 
+To ensure reproducibility, the following configuration was applied consistently across all folds. 
+The experiments used quantum-augmented inputs consisting of the original RGB channels and four additional quantum-generated channels (\textbf{QC5 configuration}, $3+4=5$ total channels). 
+Each experiment was trained using \textbf{6-fold cross-validation}, with a \textbf{batch size of 64}, and optimized using the \textbf{Adam} optimizer with a learning rate of $10^{-3}$. 
+Training was conducted for \textbf{10 epochs} without early stopping or other adaptive termination criteria. 
+All random seeds were fixed to \textbf{42} for NumPy, TensorFlow, and Python to ensure deterministic behavior. 
+The implementation used \textbf{TensorFlow~2.15.1}in a single-replica Kaggle environment without TPU acceleration. 
+
+Due to the preprocessing overhead introduced by the generation of quantum-enhanced channels, a direct wall-clock time comparison with purely classical baselines was not performed. 
+This preprocessing step introduces additional latency that is independent of model optimization, and thus not representative of training efficiency differences between classical and hybrid architectures.
 \begin{figure}[H]
 %\isPreprints{\centering}{} % Only used for preprints
 % \begin{adjustwidth}{-\extralength}{0cm}
@@ -313,10 +330,10 @@ During training, models were optimized using stochastic gradient descent with ap
 \end{figure}   
 
 
-This workflow(Figure~\ref{fig_cifar_acc}) ensured that all results reported in the study were derived from strictly unseen data and were free from information leakage or overly optimistic validation scores. Moreover, it allowed us to quantify model stability across folds by computing standard deviations of the metrics. In practice, this provided deeper insight into the robustness of hybrid models compared to their classical counterparts.
+This workflow(Figure~\ref{fig_workflow}) ensured that all results reported in the study were derived from strictly unseen data and were free from information leakage or overly optimistic validation scores. Moreover, it allowed us to quantify model stability across folds by computing standard deviations of the metrics. In practice, this provided deeper insight into the robustness of hybrid models compared to their classical counterparts.
 
 
-\section{Methodology}
+\section{Results}
 
 The experiments were designed to assess how the choice of classical backbone influences the performance of hybrid quantum-classical neural networks (HNNs). We report results for two datasets: CIFAR-10, representing a standard vision benchmark, and DermaMNIST, representing a medical imaging dataset with imbalanced diagnostic classes. All results are averaged across stratified 5-fold cross-validation, and both mean accuracy and standard deviation are presented to capture stability across folds.
 
@@ -327,13 +344,16 @@ To evaluate the effect of hybridization on general-purpose image classification,
 
 \begin{table}[H] 
 \caption{Comparison of the accuracy with CIFAR-10 dataset.\label{tab_cifar_acc}}
-\begin{tabularx}{\textwidth}{CCCCCCC}
+\begin{tabularx}{\textwidth}{CCCCCCCC}
 \toprule
-\textbf{Backbone} & \textbf{Hybrid mean} & \textbf{Hybrid std} & \textbf{Classic mean} & \textbf{Classic std} & \textbf{$\Delta$ mean} & \textbf{$\Delta$ std} \\
+\textbf{Backbone} & \textbf{Variant} & \textbf{Mean} & \textbf{Std} & \textbf{$\Delta$ mean} & \textbf{$\Delta$ std} \\
 \midrule
-LCNet050 & \textbf{0,7178} & \textbf{0,0074} & 0,7103 & 0,0151 & +0,0075 & -0,0077 \\
-LCNet075 & \textbf{0,7592} & \textbf{0,0063} & 0,7490 & 0,0216 & +0,0102 & -0,0153 \\
-LCNet100 & 0,7817 & 0,0082 & \textbf{0,7915} & \textbf{0,0064} & -0,0098 & +0,0018 \\
+LCNet050 & Hybrid & \textbf{0,7178} & \textbf{0,0074} & +0,0075 & -0,0077 \\
+LCNet050 & Classic & 0,7103 & 0,0151 & – & – \\
+LCNet075 & Hybrid & \textbf{0,7592} & \textbf{0,0063} & +0,0102 & -0,0153 \\
+LCNet075 & Classic & 0,7490 & 0,0216 & – & – \\
+LCNet100 & Hybrid & 0,7817 & 0,0082 & -0,0098 & +0,0018 \\
+LCNet100 & Classic & \textbf{0,7915} & \textbf{0,0064} & – & – \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -348,15 +368,17 @@ The accuracy results in Figure~\ref{fig_cifar_acc} show that hybrid models consi
 
 
 \begin{table}[H] 
-\caption{Comparison of the general metrics with CIFAR-10 dataset.\label{tab_cifar_auc}}
-%\isPreprints{\centering}{} % Only used for preprints
-\begin{tabularx}{\textwidth}{CCCCCCC}
+\caption{Comparison of AUC metrics with CIFAR-10 dataset.\label{tab_cifar_auc}}
+\begin{tabularx}{\textwidth}{CCCCCCCC}
 \toprule
-\textbf{Backbone} & \textbf{Hybrid AUC macro (mean ± std)} & \textbf{Classical AUC macro (mean ± std)} & \textbf{$\Delta$AUC macro} & \textbf{Hybrid AUC micro (mean ± std)} & \textbf{Classical AUC micro (mean ± std)} & \textbf{$\Delta$AUC micro}\\
+\textbf{Backbone} & \textbf{Variant} & \textbf{AUC macro mean} & \textbf{AUC macro std} & \textbf{AUC micro mean} & \textbf{AUC micro std} & \textbf{$\Delta$AUC macro} & \textbf{$\Delta$AUC micro} \\
 \midrule
-LCNet050 & 0.9531 ± 0.0255 & \textbf{0.9578 ± 0.0231} & -0.0047 & 0.9576 ± \textbf{0.0027} &\textbf{ 0.9624} ± 0.0030 & -0.0048\\
-LCNet075 & 0.9634 ± \textbf{0.0207} & \textbf{0.9639} ± 0.0199 & -0.0005 & 0.9680 ± \textbf{0.0017} & \textbf{0.9685} ± 0.0060 & -0.0005\\
-LCNet100 & 0.9681 ± 0.0172 & \textbf{0.9739} ± \textbf{0.0145} & -0.0058 & 0.9723 ± 0.0015 & \textbf{0.9782} ± \textbf{0.0010} & -0.0059\\
+LCNet050 & Hybrid  & 0.9531 & 0.0255 & 0.9576 & \textbf{0.0027} & -0.0047 & -0.0048 \\
+LCNet050 & Classic & \textbf{0.9578} & 0.0231 & \textbf{0.9624} & 0.0030 & – & – \\
+LCNet075 & Hybrid  & 0.9634 & \textbf{0.0207} & 0.9680 & \textbf{0.0017} & -0.0005 & -0.0005 \\
+LCNet075 & Classic & \textbf{0.9639} & 0.0199 & \textbf{0.9685} & 0.0060 & – & – \\
+LCNet100 & Hybrid  & 0.9681 & 0.0172 & 0.9723 & 0.0015 & -0.0058 & -0.0059 \\
+LCNet100 & Classic & \textbf{0.9739} & \textbf{0.0145} & \textbf{0.9782} & \textbf{0.0010} & – & – \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -381,16 +403,21 @@ Taken together, these findings indicate that hybrid LCNet architectures provide 
 The accuracy results on DermaMNIST(Figure~\ref{fig_derma_acc}) reveal a strong advantage of hybrid models at smaller backbone sizes. LCNet050 achieved an average accuracy of 0.6125 compared to only 0.5457 for the classical variant, while LCNet075 reached 0.6377 versus 0.5720 for its counterpart. These differences, amounting to gains of approximately six to seven percentage points, were also accompanied by slightly lower variance, suggesting that hybridization not only improved predictive performance but also produced more reliable fold-to-fold outcomes. For LCNet100, the hybrid model continued to outperform the classical version, reaching 0.6121 against 0.5764, although the variance remained relatively high in both cases. By contrast, larger backbones shifted the balance in favor of classical architectures. LCNet150 and LCNet200 achieved higher accuracies in their classical configurations, with margins of nearly three and six percentage points, respectively. These results indicate that the benefits of quantum integration are most pronounced in smaller and medium backbones, whereas classical networks retain an advantage once the capacity of the model becomes sufficiently large.
 
 \begin{table}[H] 
-\caption{Comparison of the accuracy with DermaMNIST dataset.\label{tab_derma_acc}}
+\caption{Comparison of accuracy with DermaMNIST dataset.\label{tab_derma_acc}}
 \begin{tabularx}{\textwidth}{CCCCCCC}
 \toprule
-\textbf{Backbone} & \textbf{Hybrid mean} & \textbf{Hybrid std} & \textbf{Classic mean} & \textbf{Classic std} & \textbf{$\Delta$ mean} & \textbf{$\Delta$ std} \\
+\textbf{Backbone} & \textbf{Variant} & \textbf{Mean} & \textbf{Std} & \textbf{$\Delta$ mean} & \textbf{$\Delta$ std} \\
 \midrule
-LCNet050 & \textbf{0,6125} & \textbf{0,0116} & 0,5457 & 0,0231 & +0,0668 & -0,0115 \\
-LCNet075 & \textbf{0,6377} & \textbf{0,0270} & 0,5720 & 0,0295 & +0,0657 & -0,0025 \\
-LCNet100 & \textbf{0,6121} & \textbf{0,0221} & 0,5764 & 0,0310 & +0,0357 & -0,0089 \\
-LCNet150 & 0,5581 & 0,0309 & \textbf{0,5879} & \textbf{0,0256} & -0,0298 & +0,0053 \\
-LCNet200 & 0,5554 & 0,0300 & \textbf{0,6135} & \textbf{0,0205} & -0,0581 & +0,0095 \\
+LCNet050 & Hybrid  & \textbf{0.6125} & \textbf{0.0116} & +0.0668 & -0.0115 \\
+LCNet050 & Classic & 0.5457 & 0.0231 & – & – \\
+LCNet075 & Hybrid  & \textbf{0.6377} & \textbf{0.0270} & +0.0657 & -0.0025 \\
+LCNet075 & Classic & 0.5720 & 0.0295 & – & – \\
+LCNet100 & Hybrid  & \textbf{0.6121} & \textbf{0.0221} & +0.0357 & -0.0089 \\
+LCNet100 & Classic & 0.5764 & 0.0310 & – & – \\
+LCNet150 & Hybrid  & 0.5581 & 0.0309 & -0.0298 & +0.0053 \\
+LCNet150 & Classic & \textbf{0.5879} & \textbf{0.0256} & – & – \\
+LCNet200 & Hybrid  & 0.5554 & 0.0300 & -0.0581 & +0.0095 \\
+LCNet200 & Classic & \textbf{0.6135} & \textbf{0.0205} & – & – \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -405,27 +432,28 @@ LCNet200 & 0,5554 & 0,0300 & \textbf{0,6135} & \textbf{0,0205} & -0,0581 & +0,00
 The AUC results in Table~\ref{tab_derma_auc} provide additional insight into the effect of hybridization on DermaMNIST. For the smaller backbones, the hybrid models consistently outperformed the classical ones across both macro- and micro-AUC. LCNet050 improved macro-AUC from 0.8310 to 0.8647 and micro-AUC from 0.8919 to 0.9080, while also slightly reducing fold-to-fold variance(Figure~\ref{fig_derma_auc}). LCNet075 demonstrated a similar trend, with macro-AUC increasing from 0.8391 to 0.8778 and micro-AUC from 0.9028 to 0.9207. In both cases, the hybrid variants provided more robust discrimination between diagnostic categories, with improvements ranging from 1.5 to almost 4 percentage points. LCNet100 continued this pattern with a more modest advantage, gaining roughly two percentage points in macro-AUC and less than one point in micro-AUC. However, the benefit diminished for larger models. LCNet150 and LCNet200 performed better in their classical versions, which achieved higher macro- and micro-AUC values and displayed lower variance. These results suggest that hybrid architectures improve discrimination at small to medium scales, particularly in handling imbalanced medical classes, but lose this advantage as the backbone grows more complex.
 
 \begin{table}[H] 
-\caption{Comparison of the general metrics with DermaMNIST dataset.\label{tab_derma_auc}}
-%\isPreprints{\centering}{} % Only used for preprints
-\begin{tabularx}{\textwidth}{CCCCCCC}
+\caption{Comparison of AUC metrics with DermaMNIST dataset.\label{tab_derma_auc_split}}
+\begin{tabularx}{\textwidth}{CCCCCCCC}
 \toprule
-\textbf{Backbone} & \textbf{Hybrid AUC macro (mean ± std)} & \textbf{Classical AUC macro (mean ± std)} & \textbf{$\Delta$AUC macro} & \textbf{Hybrid AUC micro (mean ± std)} & \textbf{Classical AUC micro (mean ± std)} & \textbf{$\Delta$AUC micro}\\
+\textbf{Backbone} & \textbf{Variant} & \textbf{AUC macro mean} & \textbf{AUC macro std} & \textbf{AUC micro mean} & \textbf{AUC micro std} & \textbf{$\Delta$AUC macro} & \textbf{$\Delta$AUC micro} \\
 \midrule
-LCNet050 & \textbf{0.8647 ± 0.0468}
- & 0.8310 ± 0.0558 & +0.0337 & \textbf{0.9080 ± 0.0048} & 0.8919 ± 0.0090 & +0.0161\\
-LCNet075 & \textbf{0.8778 ± 0.0465} & 0.8391 ± 0.0467 & +0.0387 & \textbf{0.9207 ± 0.0050} & 0.9028 ± 0.0072 & +0.0179\\
-LCNet100 & \textbf{0.8664 ± 0.0476} & 0.8434 ± 0.0533 & +0.0230 & \textbf{0.9169} ± 0.0077 & 0.9104 ± \textbf{0.0043} & +0.0065\\
-LCNet150 & 0.8293 ± \textbf{0.0452} & \textbf{0.8362} ± 0.0662 & -0.0069 & 0.8765 ± 0.0114 & 0.9174 ± 0.0040 & -0.0409\\
-LCNet200 & 0.8394 ± 0.0536 & \textbf{0.8635 ± 0.0478} & -0.0241 & 0.8768 ± 0.0116 & \textbf{0.9181 ± 0.0068} & -0.0413\\
-
-
+LCNet050 & Hybrid  & \textbf{0.8647} & 0.0468 & \textbf{0.9080} & 0.0048 & +0.0337 & +0.0161 \\
+LCNet050 & Classic & 0.8310 & 0.0558 & 0.8919 & 0.0090 & – & – \\
+LCNet075 & Hybrid  & \textbf{0.8778} & 0.0465 & \textbf{0.9207} & 0.0050 & +0.0387 & +0.0179 \\
+LCNet075 & Classic & 0.8391 & 0.0467 & 0.9028 & 0.0072 & – & – \\
+LCNet100 & Hybrid  & \textbf{0.8664} & 0.0476 & \textbf{0.9169} & 0.0077 & +0.0230 & +0.0065 \\
+LCNet100 & Classic & 0.8434 & 0.0533 & 0.9104 & \textbf{0.0043} & – & – \\
+LCNet150 & Hybrid  & 0.8293 & \textbf{0.0452} & 0.8765 & 0.0114 & -0.0069 & -0.0409 \\
+LCNet150 & Classic & \textbf{0.8362} & 0.0662 & 0.9174 & 0.0040 & – & – \\
+LCNet200 & Hybrid  & 0.8394 & 0.0536 & 0.8768 & 0.0116 & -0.0241 & -0.0413 \\
+LCNet200 & Classic & \textbf{0.8635} & 0.0478 & \textbf{0.9181} & 0.0068 & – & – \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \begin{figure}[H]
 %\isPreprints{\centering}{} % Only used for preprints
-\includegraphics[width=13.5cm]{figures_new/cifar_auc_oof.png}
+\includegraphics[width=13.5cm]{figures_new/dermamnist_auc_oof.png}
 \caption{DermaMNIST AUC macro mean OoF comparison.\label{fig_derma_auc}}
 \end{figure} 
 
