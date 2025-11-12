@@ -1,0 +1,768 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[computation,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerobiology, aerospace, agriculture, agriengineering, agrochemicals, agronomy, ai, air, algorithms, allergies, alloys, analytica, analytics, anatomia, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arm, arthropoda, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, cyber, dairy, data, ddc, dentistry, dermato, dermatopathology, designs, devices, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, future, futureinternet, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, grasses, gucdd, hazardousmatters, healthcare, hearts, hemato, hematolrep, heritage, higheredu, highthroughput, histories, horticulturae, hospitals, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijpb, ijtm, ijtpp, ime, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jcto, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jvd, jzbg, kidneydial, kinasesphosphatases, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing,\gdef\@continuouspages{yes}} nanomaterials, ncrna, ndt, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, %%nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, %oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology,\gdef\@ISSN{2813-0618}\gdef\@continuous pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, platforms, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, receptors, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, sclerosis, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, spectroscj, sports, standards, stats, std, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, targets, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, virtualworlds, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal. Changing "submit" to "accept" before posting will remove line numbers.
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. Remove "pdftex" for (1) compiling with LaTeX & dvi2pdf (if eps figures are used) or for (2) compiling with XeLaTeX.
+
+\usepackage{threeparttable} % For better footnotes in tables
+
+%=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2025}
+\copyrightyear{2025}
+\externaleditor{Firstname Lastname} % More than 1 editor, please add `` and '' before the last editor name
+\datereceived{14 December 2024} 
+\daterevised{14 January 2025} % Comment out if no revised date
+\dateaccepted{6 February 2025} 
+\datepublished{ } 
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For retracted papers: "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+%\CorrStatement{yes}  % For updates
+%\longauthorlist{yes} % For many authors that exceed the left citation part
+
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
+% cleveref: load \crefname definitions after \begin{document}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.17}
+
+%=================================================================
+% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% Full title of the paper (Capitalized)
+%\Title{HNN-QC$n$: Hybrid Neural Networks with Multiple Quanvolutional Channel Inputs for Multiclass Image Classification}
+\Title{Impact of Scaling Classic Component on Performance of Hybrid Multi-Backbone Quantum-Classic Neural Networks for Medical Applications}
+
+% MDPI internal command: Title for citation in the left column
+%\TitleCitation{HNN-QC$n$: Hybrid Neural Networks with Multiple Quanvolutional Channel Inputs for Multiclass Image Classification}
+\TitleCitation{Impact of Scaling Classic Component on Performance of Hybrid Multi-Backbone Quantum-Classic Neural Networks for medical applications}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0009-0009-1631-8172}
+\newcommand{\orcidauthorB}{0000-0003-2682-4668} 
+\newcommand{\orcidauthorC}{0000-0002-9395-8685} 
+
+% Authors, for the paper (add full first names)
+\Author{
+    Arsenii Khmelnytskyi  *\orcidA{}, 
+    Yuri Gordienko, \orcidB{}, and 
+    Sergii Stirenko \orcidC{}
+}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Arsenii Khmelnytskyi, Yuri Gordienko, and Sergii Stirenko}
+
+% MDPI internal command: Authors, for citation in the left column
+%MDPI: Please carefully check the accuracy of names and abbreviations.
+\AuthorCitation{Khmelnytskyi, A.; Gordienko, Y.; Stirenko, S.}
+
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address[1]{Faculty of Informatics and Computer Science, National Technical University of Ukraine ``Igor Sikorsky Kyiv Polytechnic Institute'', %MDPI: Please check if this should be revised as ``Igor Sikorsky Kyiv Polytechnic Institute, National Technical University of Kyiv''.
+03056 Kyiv, %MDPI: Post code added, please check and confirm if it is correct.
+Ukraine; ars4899@gmail.com (A.K.); gord@comsys.kpi.ua (Y.G.); stirenko@comsys.kpi.ua (S.S.) %MDPI: We added the email addresses here according to the submitting system. Please confirm.
+
+%\\
+%$^{2}$ \quad Affiliation 2; e-mail@e-mail.com
+}
+
+% Contact information of the corresponding author
+\corres{\hangafter=1 \hangindent=1.05em \hspace{-0.82em}Correspondence: ars4899@gmail.com
+%; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)
+}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation.}  % Current address should not be the same as any items in the Affiliation section.
+%\secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
+
+%\simplesumm{} % Simple summary
+
+%\conference{} % An extended version of a conference paper
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+%%%\abstract{A single paragraph of about 200 words maximum. For research articles, abstracts should give a pertinent overview of the work. We strongly encourage authors to use the following style of structured abstracts, but without headings: (1) Background: place the question addressed in a broad context and highlight the purpose of the study; (2) Methods: describe briefly the main methods or treatments applied; (3) Results: summarize the article's main findings; (4) Conclusions: indicate the main conclusions or interpretations. The abstract should be an objective representation of the article, it must not contain results which are not presented and substantiated in the main text and should not exaggerate the main conclusions.}
+
+\abstract
+{
+    %MDPI: This journals' Abstract should be structured to contain the subheadings, please check and revise.
+    \textbf{Purpose:} 
+    While hybrid quantum-classical neural networks (HNNs) are a promising avenue for quantum advantage, the critical influence of the classical backbone architecture on their performance remains poorly understood. This study investigates the role of lightweight convolutional neural network architectures, focusing on MobileNetV3 and LCNet, in determining the stability, generalization, and effectiveness of hybrid models augmented with quantum layers for medical applications. The objective is to clarify the architectural compatibility between quantum and classical components and provide guidelines for backbone selection in hybrid designs.
+    \textbf{Methods:} 
+     We constructed HNNs by integrating a four-qubit quantum circuit (with trainable rotations) into scaled versions of MobileNetV3 (Small050, Small075, Small100) and LCNet (050, 075, 100). These models were rigorously evaluated on CIFAR-10 and MedMNIST using stratified 5-fold cross-validation, assessing accuracy, AUC, and robustness metrics. Performance was assessed with accuracy, macro- and micro-averaged area under the ROC curve (AUC), per-class accuracy, and out-of-fold (OoF) predictions to ensure unbiased generalization. In addition, training dynamics, confusion matrices, and performance stability across folds were analyzed to capture both predictive accuracy and robustness.
+    \textbf{Results:} 
+    The experiments revealed that backbone architecture and model size critically shape the outcomes of hybridization. LCNet hybrids consistently maintained strong performance across scaling levels: from LCNet050 to LCNet100, hybrid models preserved high macro-AUC (>0.95) and competitive accuracy, mirroring the expected scaling behavior of classical CNNs. \textit{The most consistent gains were observed at smaller and medium LCNet scales, where hybridization improved accuracy and stability across folds.} In contrast, MobileNetV3 hybrids demonstrated a reversal of classical trends. While larger classical MobileNet variants improved in accuracy, hybrid MobileNet models benefited only at the smallest scales (Small050 and Small075), where quantum layers enhanced accuracy by up to three percentage points. The largest variant (Small100) underperformed relative to its classical baseline, with unstable convergence and degraded AUC. This divergence indicates that hybrid networks do not necessarily follow the “bigger is better” paradigm of classical deep learning. Per-class analysis further showed that hybrids improved recognition in challenging categories, narrowing the gap between easy and difficult classes.
+    \textbf{Conclusion:} 
+    The findings demonstrate that the effectiveness of hybrid quantum–classical neural networks depends strongly on the underlying classical backbone for medical applications. LCNet architectures, with their lightweight and structured design, offer greater stability and adaptability for quantum integration compared to MobileNetV3. These results emphasize that architectural compatibility remains a decisive factor in realizing the potential of hybrid networks. Beyond specific backbones, this study contributes to a broader understanding of how quantum layers interact with classical models, paving the way for principled design of scalable and reliable hybrid architectures.
+}
+
+
+% Keywords
+\keyword{\textls[-15]{neural network; image classification; quantum transformation; data augmentation;} multi-backbone architecture; LCNet; MobileNetV3; CIFAR; hybrid neural network.} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data
+%\dataset{DOI number or link to the deposited data set if the data set is published separately. If the data set shall be published as a supplement to this paper, this field will be filled by the journal editors. In this case, please submit the data set as a supplement.}
+%\datasetlicense{License under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{For entry manuscripts only: please provide a brief overview of the entry title instead of an abstract.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Advances in Respiratory Medicine
+%\addhighlights{yes}
+%\renewcommand{\addhighlights}{%
+
+%\noindent This is an obligatory section in “Advances in Respiratory Medicine”, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
+%\textbf{What are the main findings?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}\vspace{3pt}
+%\textbf{What is the implication of the main finding?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\section{Introduction}
+
+In recent years, deep learning has become the foundation of modern artificial intelligence (AI), achieving high performance across vision, language, and multimodal tasks\cite{lecun2015deep}. Yet, the growing demand for computational power has highlighted the limitations of classical architectures, both in scalability and efficiency. At the same time, the rapid development of quantum computing\cite{steane1998quantum} has opened the possibility of combining classical and quantum paradigms to build hybrid models that may overcome some of these limitations.
+Quantum machine learning (QML) integrates quantum computing with traditional machine learning. Unlike classical computation, which operates on bits, quantum systems exploit superposition and entanglement, enabling richer representational capacity. A particularly promising direction is the design of hybrid quantum-classical neural networks\cite{arthur2022hybrid}, where parameterized quantum circuits (PQCs) are embedded into deep learning architectures as additional layers. Such models aim to combine the expressive power of quantum circuits with the maturity of classical optimization frameworks.
+Convolutional neural networks (CNNs) are natural candidates for hybridization, as they already excel in learning hierarchical visual features. However, CNN backbones differ greatly in structure and complexity. Efficient models such as MobileNet and LCNet, originally designed for constrained devices, appear especially suitable for integration with quantum layers, as their lightweight design aligns with the current limitations of quantum simulators and hardware.
+This study systematically investigates which classical CNN backbones are better suited for hybrid quantum-classical networks. We focus on two families—MobileNetV3 and LCNet—embedding Ry-based quantum circuits as hidden layers and evaluating them on both a general-purpose dataset (CIFAR-10) and a medical imaging dataset (DermaMNIST). By including DermaMNIST, which contains dermatological images for multi-class classification, we assess not only the theoretical potential of hybrid architectures but also their applicability to sensitive, real-world domains such as computer-aided medical diagnosis.
+
+\section{Literature review and problem statement}
+
+Quantum machine learning (QML) has rapidly evolved as a field that integrates the representational power of quantum computation with the methodological framework of classical machine learning\cite{huang2021power}. Unlike conventional computation based on binary logic, quantum computation operates on qubits capable of existing in superposition and entanglement, thereby enabling richer data transformations and more expressive representational capacity. This paradigm has motivated the development of hybrid quantum-classical architectures that combine parameterized quantum circuits (PQCs) with traditional neural network layers. Within the current technological constraints of noisy intermediate-scale quantum (NISQ) devices, PQCs—most commonly composed of rotation gates such as $RY$—serve as the core mechanism for embedding quantum layers into differentiable models.
+
+Existing research on hybrid architectures demonstrates both potential and inconsistency\cite{qazi2025quantum,suchara2018hybrid,zhao2024towards}. On one hand, several studies report that the inclusion of quantum layers can enhance performance on small-scale benchmarks such as MNIST or CIFAR-10, occasionally outperforming shallow classical networks and improving generalization. On the other hand, other works have found negligible or unstable benefits, with hybrid models failing to converge or providing marginal gains compared to classical baselines. These divergent outcomes underscore a fundamental gap in current understanding: the performance of hybrid networks appears to depend not only on the design of the quantum layer itself but also on its integration with specific classical backbones and the scale of the underlying architecture.
+
+In the classical domain, convolutional neural networks (CNNs) have long been the dominant paradigm for image recognition, yet CNN families differ substantially in structure, depth, and computational efficiency. High-capacity networks such as ResNet or DenseNet achieve strong predictive accuracy but require extensive computational resources, which complicates their adaptation to hybrid frameworks under NISQ limitations. In contrast, lightweight CNNs, including MobileNet and LCNet, offer compactness, efficiency, and modularity—characteristics that align naturally with the constraints of near-term quantum hardware. Their reduced parameter count and streamlined architecture make them ideal candidates for systematic hybridization and comparative analysis.
+
+Beyond general-purpose image classification, QML has shown growing relevance in the medical imaging domain, where robustness and interpretability are of particular importance. Recent studies suggest that hybrid models may enhance diagnostic classification by exploiting quantum-induced stochasticity and representational diversity\cite{fahim2025hqcnn}. However, most existing works remain at the proof-of-concept stage, typically limited to small datasets and isolated architectures. Only a few studies examine how different CNN backbones interact with quantum layers or how hybrid performance scales with model complexity. Moreover, prior research rarely addresses key evaluation aspects such as per-class discrimination, cross-validation stability, or out-of-fold generalization—factors that are critical for assessing the reliability and clinical applicability of hybrid models.
+
+The current state of the literature therefore reveals a clear gap: there is no comprehensive, systematic analysis of how lightweight CNN backbones behave when partially replaced by quantum layers across varying architectural scales and data domains. While early studies have shown promising results on simple datasets, it remains uncertain whether such improvements extend to more complex and imbalanced datasets, particularly in medical contexts such as dermatological image classification.
+
+The present research aims to address this gap by conducting a structured and comparative evaluation of hybrid quantum-classical LCNet architectures against their classical counterparts. The analysis is performed on two datasets of contrasting nature: CIFAR-10, a balanced and widely used benchmark for general-purpose image recognition, and DermaMNIST, a medical dataset characterized by class imbalance and diagnostic heterogeneity. By embedding $RY$-based parameterized quantum circuits into LCNet backbones of varying scales, the study systematically investigates how quantum layers affect accuracy, loss, and the area under the ROC curve (AUC), while also examining per-class behavior, cross-validation consistency, and out-of-fold generalization.
+
+The overarching objective of this research is to determine under what conditions quantum integration contributes to measurable improvements in performance and stability. More specifically, it seeks to identify the architectural scales and data domains in which hybridization yields tangible benefits, and to evaluate whether the observed advantages on general-purpose datasets translate to the more demanding and clinically relevant domain of medical imaging. Through this analysis, the study aims to provide a rigorous foundation for understanding the role of quantum layers in enhancing lightweight neural networks and to clarify the practical value of hybrid models in real-world applications.
+
+
+\section{The aim and objectives of the study}
+
+The aim of this study is to investigate the suitability of lightweight convolutional neural network backbones for hybrid quantum-classical architectures, with a focus on MobileNetV3 and LCNet. While parameterized Ry-based quantum layers have demonstrated promise, little is known about how their integration interacts with different classical designs and whether such benefits extend beyond generic benchmarks. To address this, we embed quantum layers into multiple scales of MobileNetV3 and LCNet and evaluate both classical and hybrid variants on two datasets: CIFAR-10, representing a standard benchmark in computer vision, and DermaMNIST, a medical dataset of dermatological images. By combining these evaluations, the study seeks to provide a systematic comparison of hybrid and classical networks using accuracy, validation loss, area under the ROC curve (AUC), and per-class analysis, while also assessing stability through cross-validation and out-of-fold predictions. In doing so, we aim to identify not only the conditions under which hybrid models outperform classical baselines, but also whether performance improvements observed on CIFAR-10 can be generalized to medical imaging tasks where diagnostic reliability is of critical importance.
+
+
+\section{Methodology}
+
+To evaluate the influence of backbone architecture on the performance of hybrid quantum-classical neural networks (HNNs), we developed multiple model configurations combining parameterized quantum circuits with lightweight convolutional neural networks. The models differ in their classical backbones, drawn from the MobileNetV3 (Small050, Small075, Small100) and LCNet (050, 075, 100) families, enabling a systematic comparison across architectures and scales. This section outlines the evaluation metrics, dataset, quantum layer design, integration strategy, backbone architectures, and the experimental workflow adopted in the study.
+
+\subsection{Evaluation Metrics}
+
+The assessment of hybrid and classical models relied on several complementary measures to capture different aspects of performance. The primary metrics were validation accuracy and validation area under the receiver operating characteristic curve (AUC), computed using both macro- and micro-averaging to account for class balance and overall discrimination power. Validation loss was tracked to assess learning stability and potential overfitting. In addition, per-class accuracy was computed to identify whether certain categories benefited more strongly from quantum layers. For classical models, we also considered backbone complexity, expressed in terms of parameter count and computational cost. For quantum components, execution time was not included since all experiments were performed on simulated hardware; instead, we recorded the number of quantum circuit evaluations required for training and inference. Together, these metrics provide a comprehensive view of both predictive accuracy and model efficiency. The same evaluation protocol was consistently applied to both CIFAR-10 and DermaMNIST to enable direct comparison of results across generic and medical imaging domains.
+
+
+\subsection{Quantum circuits}
+
+All hybrid models employed a four-qubit parameterized quantum circuit based on Ry rotations. Each qubit was initialized with a Hadamard gate to establish superposition, followed by a trainable Ry gate that introduced one parameter per qubit\cite{bergholm2018pennylane}. Measurement was performed in the computational basis, and the expectation values of each qubit formed a four-dimensional vector passed to the classical network.
+This design was motivated by prior studies indicating that Ry-based circuits achieve a good balance between expressiveness and training stability in hybrid architectures. The dimensionality of the circuit was deliberately chosen to match the embeddings produced by the classical backbones, allowing for seamless integration without architectural mismatches. Importantly, inputs to the circuit were normalized and \(\pi\)-scaled to ensure compatibility with the rotation parameters of the quantum gates.
+
+
+\subsection{Datasets}
+
+The CIFAR-10 dataset(Figure~\ref{fig_cifar}) served as the benchmark for evaluating the hybrid architectures in a general-purpose vision task\cite{krizhevsky2009learning}. It contains 60,000 color images of size 32×32 pixels, evenly distributed across ten object classes: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck. Of these, 50,000 images were used for training and 10,000 for testing. During cross-validation, a portion of the training data was reserved for validation to monitor learning progress and prevent overfitting. All images were normalized per channel to zero mean and unit variance, ensuring consistent scaling across models. Standard data augmentation techniques—random horizontal flipping and random cropping—were applied to increase robustness and improve generalization. The choice of CIFAR-10 was motivated by its balanced class distribution, moderate complexity, and widespread use in both classical and hybrid quantum-classical learning research, which allows for fair comparison with previous studies.
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+\includegraphics[width=13.5cm]{figures_new/cifar10_4x4_random_grid.png}
+\caption{CIFAR-10 Dataset examples.\label{fig_cifar}}
+\end{figure}   
+
+The DermaMNIST dataset(Figure~\ref{fig_dermamnis}), derived from the MedMNIST collection, was included to assess the applicability of hybrid architectures in the medical imaging domain\cite{yang2021medmnist}. It consists of 10,015 dermatoscopic images categorized into seven diagnostic classes representing various benign and malignant skin conditions. Each image was resized to 28×28 pixels and normalized to unit variance, with stratified sampling applied to preserve class proportions across folds. Unlike CIFAR-10, DermaMNIST is inherently imbalanced, with significant disparities in class frequency that mirror real-world diagnostic challenges in dermatology. This imbalance makes metrics such as the area under the ROC curve (AUC) particularly important for a reliable evaluation of model performance across classes. In this study, DermaMNIST provides a meaningful testbed for exploring how quantum-enhanced hybrid models handle complex, data-limited, and clinically relevant tasks. Its inclusion not only broadens the scope of evaluation beyond standard benchmarks but also emphasizes the potential of quantum-classical hybridization to improve diagnostic reliability, stability, and efficiency in medical contexts where even small gains in classification accuracy can have high clinical value.
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+\includegraphics[width=13.5cm]{figures_new/dermamnist_random_grid.png}
+\caption{DermaMNIST Dataset examples.\label{fig_dermamnis}}
+\end{figure} 
+
+\subsection{Quantum Layer}
+
+The integration of the quantum layer into classical backbones followed a consistent and modular pipeline. The classical network produced a four-dimensional embedding that matched the number of qubits in the quantum circuit, ensuring dimensional compatibility and eliminating the need for additional encoding or compression schemes. Before being passed to the circuit, the embedding was normalized and scaled by $\pi$, as the Ry gates interpret input values as rotation angles within the range $[-\pi, \pi]$. After quantum evolution, the circuit generated four expectation values, which were concatenated into a feature vector. This vector was then processed by a fully connected layer projecting to ten class logits, followed by a softmax activation to obtain class probabilities. This consistent design ensured that the differences between classical and hybrid variants could be attributed solely to the presence of the quantum layer, rather than architectural mismatches.
+
+In addition to this architectural integration, the quantum layer incorporated quantum data transformations that simulate the behavior of quanvolutional filters\cite{henderson2019quanvolutionalneuralnetworkspowering}. The underlying idea was that the randomness and noise introduced by quantum operations could serve as a non-classical data augmentation technique, enriching the model’s representational diversity. This approach is particularly relevant for near-term noisy intermediate-scale quantum (NISQ) devices, where limited qubit counts and decoherence can be exploited constructively rather than treated as limitations. In this study, we employed combinations of Y-axis and X-axis qubit rotation gates, implemented in the Pennylane framework. Each input feature was multiplied by $\pi$ and used as a rotation angle for the corresponding qubit, effectively embedding the normalized data into the quantum state space. The Ry and Rx gates performed rotations of single qubits around the Y and X axes of the Bloch sphere, respectively, creating transformations that are both nonlinear and inherently stochastic.
+
+Specifically, Y-axis quanvolutional transformations with stride 1 were applied to generate multi-channel quantum-transformed representations for both CIFAR-10 and DermaMNIST. The $RY(\theta)$ operation, defined as
+\begin{adjustwidth}{-\extralength}{0cm}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+\begin{equation}
+RY(\theta) =
+\begin{pmatrix}
+\cos(\frac{\theta}{2}) & -\sin(\frac{\theta}{2}) \\
+\sin(\frac{\theta}{2}) & \cos(\frac{\theta}{2})
+\end{pmatrix},
+\end{equation}
+%\isPreprints{}{% This command is only used for ``preprints''.
+\end{adjustwidth}
+rotates each qubit around the Y-axis of the Bloch sphere by angle $\theta$, enabling the encoding of pixel intensities into quantum states. For every group of pixels, independent quantum circuits were executed to produce quantum-transformed feature maps that enrich the classical embedding with additional representational capacity(Figure~\ref{fig_RY}). The resulting quantum-enhanced features were then integrated back into the hybrid architecture, allowing the network to leverage both classical spatial hierarchies and non-classical transformations derived from quantum operations.
+
+This hybrid integration strategy—combining learned embeddings with stochastic quantum rotations—enables the architecture to capture a broader range of correlations within the data while maintaining efficient compatibility with existing deep learning frameworks. It provides a practical foundation for hybrid modeling that could be directly extended to hardware implementations on future NISQ quantum processors.
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+\includegraphics[width=13.5cm]{figures_new/randomlayers_circuit.png}
+\caption{Examples of quantum transformations implemented by Pennylane simulation software for Y with 4 qubits on 4 pixels.\label{fig_RY}}
+\end{figure} 
+
+\subsection{Classical Backbone}
+
+The choice of backbone architecture is a central focus of this study. We selected two families of lightweight convolutional neural networks: MobileNetV3 and LCNet\cite{koonce2021mobilenetv3, yu2020lcnet}. Both are designed for efficiency and are widely used in mobile and resource-constrained environments, making them natural candidates for quantum integration.
+MobileNetV3 (Howard et al., 2019) builds on depthwise separable convolutions, inverted residual connections, and squeeze-and-excitation modules. It was explicitly designed to balance accuracy and efficiency, with variants such as Small050, Small075, and Small100 representing different parameterization scales. Its design introduces strong inductive biases and nonlinear interactions, but this complexity may interact unpredictably with quantum layers, potentially destabilizing training in larger variants.
+LCNet (Ma et al., 2022) represents a more recent architecture optimized for compactness. It employs linear convolutions, lightweight channel interactions, and efficient bottleneck structures. LCNet is explicitly designed to reduce redundancy while maintaining feature expressivity. Importantly, its simpler and more structured design makes it especially attractive for integration with quantum layers, as it minimizes the risk of parameter explosion or incompatibility with small quantum circuits.
+For both backbones, the last classical layer before the quantum circuit was implemented with a tanh activation to constrain outputs to (–1, 1), ensuring they aligned with the expected ranges of quantum gates. This detail was critical, as unconstrained values could destabilize quantum training. In both MobileNetV3 and LCNet, intermediate layers employed ReLU activations. The classification stage, shared across all models, consisted of a fully connected layer projecting quantum outputs into 10 logits, followed by softmax.
+By comparing multiple scales of MobileNetV3 and LCNet, we aimed to isolate how backbone complexity, parameter count, and architectural design influence the success of hybrid quantum integration.
+
+
+\subsection{Workflow}
+
+The rigorous workflow was implemented to ensure fair and robust comparison between classical and hybrid models. Training and validation were conducted using stratified 5-fold cross-validation (CV). After five folds, OoF predictions were aggregated and used to compute final performance metrics, including overall accuracy, macro- and micro-averaged AUC, and per-class accuracy. Confusion matrices were also constructed to assess class-specific performance. This workflow was applied consistently to both CIFAR-10 and DermaMNIST, ensuring methodological comparability between experiments on general-purpose and medical datasets.
+This strategy provided several advantages. First, it mitigated overfitting by ensuring that evaluation was always performed on unseen data. Second, stratification preserved class balance across folds, which is essential for multiclass tasks such as CIFAR-10. Third, it enabled aggregation of predictions across all folds into a complete set of out-of-fold (OoF) predictions, which served as the basis for computing unbiased performance metrics.
+During training, models were optimized using stochastic gradient descent with appropriate learning rate scheduling. At the end of each epoch, validation accuracy, AUC, and loss were recorded. After five folds, OoF predictions were aggregated and used to compute final performance metrics, including overall accuracy, macro- and micro-averaged AUC, and per-class accuracy. Confusion matrices were also constructed to assess class-specific performance. 
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+% \begin{adjustwidth}{-\extralength}{0cm}
+% \centering
+\includegraphics[width=8.6cm]{figures_new/flowchart.jpg}
+% \end{adjustwidth}
+\caption{Workflow.\label{fig_workflow}}
+\end{figure}   
+
+
+This workflow(Figure~\ref{fig_cifar_acc}) ensured that all results reported in the study were derived from strictly unseen data and were free from information leakage or overly optimistic validation scores. Moreover, it allowed us to quantify model stability across folds by computing standard deviations of the metrics. In practice, this provided deeper insight into the robustness of hybrid models compared to their classical counterparts.
+
+
+\section{Methodology}
+
+The experiments were designed to assess how the choice of classical backbone influences the performance of hybrid quantum-classical neural networks (HNNs). We report results for two datasets: CIFAR-10, representing a standard vision benchmark, and DermaMNIST, representing a medical imaging dataset with imbalanced diagnostic classes. All results are averaged across stratified 5-fold cross-validation, and both mean accuracy and standard deviation are presented to capture stability across folds.
+
+
+\subsection{CIFAR-10 Results}
+
+To evaluate the effect of hybridization on general-purpose image classification, we compared hybrid LCNet backbones with their classical counterparts on the CIFAR-10 dataset. Results were obtained using stratified 5-fold cross-validation, and both mean values and standard deviations are reported. Out-of-fold (OoF) predictions were aggregated to ensure unbiased estimates.
+
+\begin{table}[H] 
+\caption{Comparison of the accuracy with CIFAR-10 dataset.\label{tab_cifar_acc}}
+\begin{tabularx}{\textwidth}{CCCCCCC}
+\toprule
+\textbf{Backbone} & \textbf{Hybrid mean} & \textbf{Hybrid std} & \textbf{Classic mean} & \textbf{Classic std} & \textbf{$\Delta$ mean} & \textbf{$\Delta$ std} \\
+\midrule
+LCNet050 & \textbf{0,7178} & \textbf{0,0074} & 0,7103 & 0,0151 & +0,0075 & -0,0077 \\
+LCNet075 & \textbf{0,7592} & \textbf{0,0063} & 0,7490 & 0,0216 & +0,0102 & -0,0153 \\
+LCNet100 & 0,7817 & 0,0082 & \textbf{0,7915} & \textbf{0,0064} & -0,0098 & +0,0018 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+\includegraphics[width=13.5cm]{figures_new/cifar_10_errors.png}
+\caption{CIFAR-10 Accuracy comparison.\label{fig_cifar_acc}}
+\end{figure}   
+
+The accuracy results in Figure~\ref{fig_cifar_acc} show that hybrid models consistently outperformed their classical counterparts on smaller and mid-sized backbones. For LCNet050 and LCNet075, the hybrid variants achieved higher mean accuracy while also displaying considerably lower variance across folds. The effect was most pronounced for LCNet075, where hybridization yielded an improvement of about one percentage point in mean accuracy and reduced variability by almost a factor of three, underscoring the stabilizing influence of the quantum layer at this scale. In contrast, for LCNet100 the trend reversed, with the classical model slightly surpassing the hybrid both in accuracy and in stability, suggesting that the relative benefit of quantum integration decreases as the backbone capacity grows.
+
+
+\begin{table}[H] 
+\caption{Comparison of the general metrics with CIFAR-10 dataset.\label{tab_cifar_auc}}
+%\isPreprints{\centering}{} % Only used for preprints
+\begin{tabularx}{\textwidth}{CCCCCCC}
+\toprule
+\textbf{Backbone} & \textbf{Hybrid AUC macro (mean ± std)} & \textbf{Classical AUC macro (mean ± std)} & \textbf{$\Delta$AUC macro} & \textbf{Hybrid AUC micro (mean ± std)} & \textbf{Classical AUC micro (mean ± std)} & \textbf{$\Delta$AUC micro}\\
+\midrule
+LCNet050 & 0.9531 ± 0.0255 & \textbf{0.9578 ± 0.0231} & -0.0047 & 0.9576 ± \textbf{0.0027} &\textbf{ 0.9624} ± 0.0030 & -0.0048\\
+LCNet075 & 0.9634 ± \textbf{0.0207} & \textbf{0.9639} ± 0.0199 & -0.0005 & 0.9680 ± \textbf{0.0017} & \textbf{0.9685} ± 0.0060 & -0.0005\\
+LCNet100 & 0.9681 ± 0.0172 & \textbf{0.9739} ± \textbf{0.0145} & -0.0058 & 0.9723 ± 0.0015 & \textbf{0.9782} ± \textbf{0.0010} & -0.0059\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+\includegraphics[width=13.5cm]{figures_new/cifar_auc_oof.png}
+\caption{CIFAR-10 AUC macro mean OoF comparison.\label{fig_cifar_auc}}
+\end{figure} 
+
+Across all three backbone sizes, the classical networks maintained a small but consistent advantage in both macro- and micro-AUC means which we can see in Table~\ref{tab_cifar_auc}. Nevertheless, the hybrid variant of LCNet075 displayed markedly lower variance in micro-AUC, with a standard deviation of 0.0017 compared to 0.0060 for the classical model, indicating more consistent performance across folds even when mean values were nearly identical. This outcome points to a potential regularizing role of the quantum layer, which appears to stabilize learning dynamics most effectively at intermediate model scales.
+The comparison of hybrid and classical LCNet architectures on CIFAR-10 revealed several noteworthy patterns. In terms of accuracy, the hybrid networks demonstrated clear advantages for smaller and mid-sized backbones. LCNet050 and LCNet075 both achieved higher mean accuracy than their classical counterparts, with improvements of approximately 0.7 and 1.0 percentage points, respectively. These gains were accompanied by a noticeable reduction in variance across folds, indicating that the quantum-enhanced models produced more stable outcomes during cross-validation. At the larger scale, however, this trend did not persist. The classical LCNet100 achieved superior accuracy, outperforming the hybrid model by nearly one percentage point and exhibiting slightly greater stability, suggesting that the benefits of quantum integration diminish as the backbone size increases 
+%(Figure~\ref{fig_derma_auc}).
+(Figure~\ref{fig_cifar_auc}).
+
+When considering the area under the ROC curve, classical models maintained a modest but consistent advantage across all backbone sizes. Both macro- and micro-AUC means were slightly higher for classical networks, with differences generally below 0.6 percentage points. Despite this, the hybrid models—particularly LCNet075—displayed lower variance in micro-AUC, highlighting improved reliability across folds even when mean performance remained similar. This suggests that the main contribution of hybridization lies not in elevating AUC scores beyond classical baselines but in reducing variability in model behavior.
+Taken together, these findings indicate that hybrid LCNet architectures provide measurable benefits in terms of stability and robustness at smaller to intermediate capacities, where the regularization effect of the quantum layer appears most effective. At larger scales, however, the representational capacity of classical models becomes dominant, leading to higher accuracy and AUC. Thus, while hybrids do not consistently surpass classical networks in raw performance on CIFAR-10, they offer distinct advantages in stabilizing learning dynamics and ensuring more reliable outcomes, especially when model size is constrained.
+
+
+\subsection{DermaMNIST Results}
+
+The accuracy results on DermaMNIST(Figure~\ref{fig_derma_acc}) reveal a strong advantage of hybrid models at smaller backbone sizes. LCNet050 achieved an average accuracy of 0.6125 compared to only 0.5457 for the classical variant, while LCNet075 reached 0.6377 versus 0.5720 for its counterpart. These differences, amounting to gains of approximately six to seven percentage points, were also accompanied by slightly lower variance, suggesting that hybridization not only improved predictive performance but also produced more reliable fold-to-fold outcomes. For LCNet100, the hybrid model continued to outperform the classical version, reaching 0.6121 against 0.5764, although the variance remained relatively high in both cases. By contrast, larger backbones shifted the balance in favor of classical architectures. LCNet150 and LCNet200 achieved higher accuracies in their classical configurations, with margins of nearly three and six percentage points, respectively. These results indicate that the benefits of quantum integration are most pronounced in smaller and medium backbones, whereas classical networks retain an advantage once the capacity of the model becomes sufficiently large.
+
+\begin{table}[H] 
+\caption{Comparison of the accuracy with DermaMNIST dataset.\label{tab_derma_acc}}
+\begin{tabularx}{\textwidth}{CCCCCCC}
+\toprule
+\textbf{Backbone} & \textbf{Hybrid mean} & \textbf{Hybrid std} & \textbf{Classic mean} & \textbf{Classic std} & \textbf{$\Delta$ mean} & \textbf{$\Delta$ std} \\
+\midrule
+LCNet050 & \textbf{0,6125} & \textbf{0,0116} & 0,5457 & 0,0231 & +0,0668 & -0,0115 \\
+LCNet075 & \textbf{0,6377} & \textbf{0,0270} & 0,5720 & 0,0295 & +0,0657 & -0,0025 \\
+LCNet100 & \textbf{0,6121} & \textbf{0,0221} & 0,5764 & 0,0310 & +0,0357 & -0,0089 \\
+LCNet150 & 0,5581 & 0,0309 & \textbf{0,5879} & \textbf{0,0256} & -0,0298 & +0,0053 \\
+LCNet200 & 0,5554 & 0,0300 & \textbf{0,6135} & \textbf{0,0205} & -0,0581 & +0,0095 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+\includegraphics[width=13.5cm]{figures_new/dermamnist_errors.png}
+%\caption{CIFAR-10 Accuracy comparison.\label{fig_derma_acc}}
+\caption{DermaMNIST Accuracy comparison.\label{fig_derma_acc}}
+\end{figure} 
+
+The AUC results in Table~\ref{tab_derma_auc} provide additional insight into the effect of hybridization on DermaMNIST. For the smaller backbones, the hybrid models consistently outperformed the classical ones across both macro- and micro-AUC. LCNet050 improved macro-AUC from 0.8310 to 0.8647 and micro-AUC from 0.8919 to 0.9080, while also slightly reducing fold-to-fold variance(Figure~\ref{fig_derma_auc}). LCNet075 demonstrated a similar trend, with macro-AUC increasing from 0.8391 to 0.8778 and micro-AUC from 0.9028 to 0.9207. In both cases, the hybrid variants provided more robust discrimination between diagnostic categories, with improvements ranging from 1.5 to almost 4 percentage points. LCNet100 continued this pattern with a more modest advantage, gaining roughly two percentage points in macro-AUC and less than one point in micro-AUC. However, the benefit diminished for larger models. LCNet150 and LCNet200 performed better in their classical versions, which achieved higher macro- and micro-AUC values and displayed lower variance. These results suggest that hybrid architectures improve discrimination at small to medium scales, particularly in handling imbalanced medical classes, but lose this advantage as the backbone grows more complex.
+
+\begin{table}[H] 
+\caption{Comparison of the general metrics with DermaMNIST dataset.\label{tab_derma_auc}}
+%\isPreprints{\centering}{} % Only used for preprints
+\begin{tabularx}{\textwidth}{CCCCCCC}
+\toprule
+\textbf{Backbone} & \textbf{Hybrid AUC macro (mean ± std)} & \textbf{Classical AUC macro (mean ± std)} & \textbf{$\Delta$AUC macro} & \textbf{Hybrid AUC micro (mean ± std)} & \textbf{Classical AUC micro (mean ± std)} & \textbf{$\Delta$AUC micro}\\
+\midrule
+LCNet050 & \textbf{0.8647 ± 0.0468}
+ & 0.8310 ± 0.0558 & +0.0337 & \textbf{0.9080 ± 0.0048} & 0.8919 ± 0.0090 & +0.0161\\
+LCNet075 & \textbf{0.8778 ± 0.0465} & 0.8391 ± 0.0467 & +0.0387 & \textbf{0.9207 ± 0.0050} & 0.9028 ± 0.0072 & +0.0179\\
+LCNet100 & \textbf{0.8664 ± 0.0476} & 0.8434 ± 0.0533 & +0.0230 & \textbf{0.9169} ± 0.0077 & 0.9104 ± \textbf{0.0043} & +0.0065\\
+LCNet150 & 0.8293 ± \textbf{0.0452} & \textbf{0.8362} ± 0.0662 & -0.0069 & 0.8765 ± 0.0114 & 0.9174 ± 0.0040 & -0.0409\\
+LCNet200 & 0.8394 ± 0.0536 & \textbf{0.8635 ± 0.0478} & -0.0241 & 0.8768 ± 0.0116 & \textbf{0.9181 ± 0.0068} & -0.0413\\
+
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+\includegraphics[width=13.5cm]{figures_new/cifar_auc_oof.png}
+\caption{DermaMNIST AUC macro mean OoF comparison.\label{fig_derma_auc}}
+\end{figure} 
+
+Taken together, the DermaMNIST experiments show that hybrid LCNet models are highly effective at compact and intermediate scales, where they substantially improve both accuracy and AUC while reducing variability in several cases. At larger scales, however, the advantage shifts back toward classical networks, which deliver higher predictive performance and greater stability. This pattern suggests that the regularization effect of quantum layers is most beneficial in constrained, imbalanced medical settings, but does not scale effectively to deeper architectures.
+
+\section{Discussion}
+
+\subsection{CIFAR-10}
+
+On CIFAR-10, the results indicate that hybrid models provide the clearest benefits at smaller and medium backbone scales, whereas their advantage diminishes as the architecture grows larger. As shown in Table~\ref{tab_cifar_acc}, hybrid LCNet050 and LCNet075 models achieved higher mean accuracies (\(0.7178\) and \(0.7592\)) than their classical counterparts (\(0.7103\) and \(0.7490\)), while also exhibiting notably lower standard deviations across folds (\(0.0074\) and \(0.0063\) versus \(0.0151\) and \(0.0216\)). This reduction in variance—nearly threefold for LCNet075—demonstrates that hybridization enhances training stability and generalization consistency.  
+
+In Table~\ref{tab_cifar_auc}, a similar pattern emerges: although classical models retained a marginal edge in mean AUC values, the hybrid LCNet075 achieved substantially lower micro-AUC variability (\(0.0017\) vs. \(0.0060\)), indicating more uniform performance across folds. Such behavior suggests that quantum layers act as a regularizing mechanism, introducing a controlled form of stochasticity that improves robustness without requiring additional parameters.  
+
+The most consistent improvements were therefore observed at smaller and medium backbone scales, where hybrid models not only achieved higher accuracy but also reduced variability across folds—pointing to a synergistic interaction between limited classical capacity and quantum feature transformation. However, once the backbone reached LCNet100, this benefit plateaued: classical models slightly surpassed hybrids in both mean accuracy and AUC, implying that larger networks possess sufficient representational capacity to achieve stable convergence without quantum augmentation. Consequently, the CIFAR-10 experiments reveal that hybridization is most advantageous under constrained model capacity, serving as an implicit regularizer in smaller architectures, whereas classical backbones regain dominance as depth and complexity increase.
+
+\subsection{DermaMNIST}
+
+The DermaMNIST results further reinforce this scale-dependent behavior while extending its implications to medical data. As shown in Table~\ref{tab_derma_acc}, hybrid LCNet050 and LCNet075 achieved mean accuracies of \(0.6125\) and \(0.6377\), respectively, outperforming the classical baselines (\(0.5457\) and \(0.5720\)) by approximately six to seven percentage points. Importantly, these gains were accompanied by comparable or reduced standard deviations (\(0.0116\) and \(0.0270\) versus \(0.0231\) and \(0.0295\)), confirming that hybridization improves both predictive power and reliability.  
+
+When considering AUC metrics (Table~\ref{tab_derma_auc}), the hybrid models again displayed superior macro- and micro-AUCs at smaller scales, with LCNet075 achieving \(0.8778\) macro-AUC and \(0.9207\) micro-AUC, compared to \(0.8391\) and \(0.9028\) for the classical counterpart. The improvement in hybrid performance was accompanied by lower or similar standard deviations, emphasizing that quantum integration contributes not merely to higher averages but also to more stable outcomes across folds. Even at LCNet100, hybrids maintained a modest advantage in mean values despite slightly increased variability.  
+
+However, for the largest backbones (LCNet150 and LCNet200), the classical architectures regained superiority, showing both higher mean AUCs and smaller variances. This reversal suggests that as the classical network’s representational power increases, the incremental benefits of the quantum layer diminish. At that scale, the added stochasticity may even hinder convergence, producing less stable learning dynamics. Thus, the DermaMNIST experiments corroborate the CIFAR-10 findings: hybrid quantum-classical integration yields measurable benefits primarily in compact architectures, where it compensates for limited expressive capacity and enhances training consistency.
+
+\subsection{General insights and implications for medical data}
+
+Collectively, these findings reveal that the primary strength of hybrid quantum–classical models lies not in outperforming classical networks across all configurations, but in enabling smaller architectures to achieve comparable or superior generalization with reduced variability. The combination of higher mean accuracy and lower standard deviation in smaller LCNet hybrids highlights the potential of quantum layers as implicit regularizers, particularly valuable when data or computational resources are limited.  
+
+This effect is especially relevant for medical imaging, where class imbalance and small sample sizes often amplify overfitting risks. On DermaMNIST, hybrid models not only improved average accuracy and AUC but also provided more consistent results across folds—an essential property in clinical contexts where stability and reliability are critical. These observations suggest that quantum transformations can act as a controlled source of noise that promotes smoother optimization landscapes, reducing sensitivity to initialization and sample variation.  
+
+While classical models continue to outperform hybrids at larger scales, the demonstrated efficiency of smaller hybrid architectures offers an appealing pathway for resource-constrained or edge medical applications. By achieving competitive results with fewer parameters and enhanced consistency, hybrid LCNet variants represent a promising direction for practical quantum-assisted medical image analysis under NISQ-era constraints.
+
+\subsection{Limitations and Future Research Directions}
+
+While our study provides evidence for the critical role of classical backbone architecture in HNN performance, several limitations present valuable avenues for future research, particularly in the context of medical applications.
+
+% Architectural Explainability ???
+A primary limitation is the phenomenological nature of our findings: we have documented \textit{that} backbones like LCNet and MobileNetV3 respond differently to hybridization, but a deeper, mechanistic explanation for \textit{why} should be researched thoroughly. Future work should move beyond performance metrics to analyze the internal representations and training dynamics of these hybrid models. Investigating factors such as gradient flow, the effect of specific classical modules (e.g., in MobileNetV3), and the interaction between classical feature maps and the quantum latent space could yield a principled theory of architectural compatibility, which is essential for rational HNN design.
+
+% Quantum Circuit Design and the Nature of the Advantage ???
+The use of a simple, $RY$-based circuit raises a fundamental question: are the observed benefits uniquely quantum, or do they stem from introducing a well-initialized, non-linear stochastic layer? To isolate the source of improvement, future investigations must include ablation studies with classical probabilistic layers of comparable parameter count. Furthermore, exploring more complex quantum schemes is crucial to determine if more expressive quantum transformations can provide gains that are definitively beyond classical approximation, especially for capturing complex, hierarchical features in medical data.
+
+% Generalizability Across the Medical Imaging Spectrum !!! 
+Our findings on DermaMNIST are promising but preliminary. The term ``medical applications'' encompasses a vast diversity of imaging modalities (from dermatology and radiology to histopathology and ophthalmology that is partially represented by other subsets in MedMNIST dataset) each with unique challenges. A significant and necessary next step is to validate these architectural guidelines across the broader MedMNIST set of subdatasets including the following aspects.
+\begin{itemize}
+    \item \textbf{Modality Variation:} Testing on sub-datasets like PathMNIST (histology), OrganMNIST (CT scans), and PneumoniaMNIST (X-rays) to assess performance across 2D and 3D structures, color vs. grayscale, and different disease paradigms.
+    \item \textbf{Scale and Resolution:} Progressing from the low-resolution (28x28, 32x32) benchmarks in MedMNIST to its larger variants and eventually to full-scale, high-resolution clinical datasets. This will critically test the scalability of the observed effect for hybridization and its practicality for real-world diagnostic tasks where image detail is paramount.
+    \item \textbf{Data Imbalance and Generalization:} Intentionally studying HNN performance on the more challenging, imbalanced MedMNIST subsets to rigorously evaluate their claimed robustness and generalization, a property of high clinical value.
+\end{itemize}
+
+Addressing these aspects will be critically important in transitioning hybrid quantum-classical neural networks from a promising concept on standardized benchmarks to a reliable tool for computer-aided diagnosis in real-world clinical environments.
+
+\section{Conclusion}
+
+This study systematically evaluated the influence of lightweight convolutional backbones on the performance of hybrid quantum-classical neural networks for medical applications in MedMNIST dataset. By embedding parameterized quantum layers into LCNet models and testing them on both the general-purpose CIFAR-10 dataset and the medical DermaMNIST dataset, we demonstrated that hybridization can provide measurable benefits under specific conditions. The most consistent improvements were observed at smaller and medium backbone scales, where hybrid LCNet models not only achieved higher mean accuracy but also exhibited markedly lower standard deviations across folds. This dual enhancement—improved central performance and reduced variability—demonstrates that quantum layers contribute to both accuracy and reliability. On DermaMNIST in particular, hybrids delivered substantial gains in both accuracy and AUC, highlighting their potential for handling imbalanced and clinically relevant data.
+At the same time, the experiments revealed that these benefits do not scale uniformly. For larger backbones, classical models regained their advantage, achieving higher accuracy and more stable AUC values. This indicates that while quantum layers act as an effective regularizer in resource-constrained settings, their contribution diminishes as the expressive power of the classical architecture increases.
+Overall, the results suggest that hybrid quantum-classical models hold promise as efficient alternatives to purely classical designs, particularly when training data is limited or when model size must remain compact. Their ability to enhance stability and performance in smaller networks points toward practical use cases in medical imaging, where lightweight but reliable models are often required. Future research should explore scalability across broader datasets and investigate hardware implementations that may further unlock the potential of hybrid quantum-classical learning  for medical applications.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{Conceptualization, A.K. and Y.G.; funding acquisition, S.S. and Y.G.; investigation, A.K. Y.G., and S.S. (in general); methodology, A.K. and Y.G.; project administration, Y.G. and S.S.; resources, S.S.; software, A.K. and Y.G.; supervision, S.S.; validation, A.K. and Y.G.; visualization, A.K. and Y.G.; writing---original draft, A.K. and Y.G.; writing---review and editing, A.K. and Y.G., and S.S. All authors have read and agreed to the published version of the manuscript.}
+
+\funding{This research was supported by the US National Academy of Sciences (US NAS) and the Office of Naval Research Global (ONRG) (IMPRESS-U initiative, No. STCU-7125) as part of exploratory research on new robust machine learning approaches for object detection and classification and by the National Research Foundation of Ukraine (NRFU), grant 2025.06/0100, as part of the research and development of novel neural networks architectures for multiclass classification and object detection.}
+
+ \dataavailability{Datasets of quantum pre-processed CIFAR-10 and DermaMNIST (MedMNIST) are openly available online on the Kaggle platform~\cite{QNN_CIFAR10_MedMNIST}. The source code of all experiments conducted in this research is also publicly available on the Kaggle platform in the form of Jupyter Notebooks~\cite{kaggle2024code_baseline,kaggle2024code_hnn_qc4,kaggle2024code_hnn_qc5,kaggle2024code_hnn_qc5_derma}.} 
+
+\conflictsofinterest{The authors declare no conflicts of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results.} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+
+%% Only for journal Encyclopedia
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+AI & Artificial Intelligence \\
+AUC & Area Under the Receiver Operating Characteristic Curve \\
+CIFAR & Canadian Institute For Advanced Research \\
+CNN & Convolutional Neural Network \\
+CV & Cross-Validation \\
+HNN & Hybrid Quantum-Classical Neural Network \\
+LCNet & Lightweight Convolutional Network \\
+MedMNIST & Medical MNIST \\
+NISQ & Noisy Intermediate-Scale Quantum \\
+OoF & Out-of-Fold \\
+PQC & Parameterized Quantum Circuit \\
+QML & Quantum Machine Learning \\
+\end{tabular}
+}
+
+\reftitle{References}
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{my_bibliography} % Entries are in the refs.bib file
+% % Reference 1
+% \bibitem[Author1(year)]{lecun2015deep}
+% Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
+% Reference 2
+% \bibitem[Author2(year)]{ref-book1}
+% Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
+% % Reference 3
+% \bibitem[Author1 and Author2 (year)]{ref-book2}
+% Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
+% % Reference 4
+% \bibitem[Author4(year)]{ref-unpublish}
+% Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
+% % Reference 5
+% \bibitem[Author8(year)]{ref-url}
+% Title of Site. Available online: URL (accessed on Day Month Year).
+% % Reference 6
+% \bibitem[Author6(year)]{ref-proceeding}
+% Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
+% % Reference 7
+% \bibitem[Author7(year)]{ref-thesis}
+% Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+
+%=====================================
+% References, variant B: internal bibliography
+%=====================================
+%\begin{thebibliography}{999}
+%% Reference 1
+%\bibitem[Author1(year)]{ref-journal}
+%Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
+%% Reference 2
+%\bibitem[Author2(year)]{ref-book1}
+%Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
+%% Reference 3
+%\bibitem[Author3(year)]{ref-book2}
+%Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
+%% Reference 4
+%\bibitem[Author4(year)]{ref-unpublish}
+%Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
+%% Reference 5
+%\bibitem[Author5(year)]{ref-communication}
+%Author 1, A.B. (University, City, State, Country); Author 2, C. (Institute, City, State, Country). Personal communication, 2012.
+%% Reference 6
+%\bibitem[Author6(year)]{ref-proceeding}
+%Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
+%% Reference 7
+%\bibitem[Author7(year)]{ref-thesis}
+%Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
+%% Reference 8
+%\bibitem[Author8(year)]{ref-url}
+%Title of Site. Available online: URL (accessed on Day Month Year).
+%\end{thebibliography}
+
+% If authors have biography, please use the format below
+%\section*{Short Biography of Authors}
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
+%{\textbf{Firstname Lastname} Biography of first author}
+%
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
+%{\textbf{Firstname Lastname} Biography of second author}
+
+% For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
+% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
+% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
+
+
+%Bulleted lists look like this:
+%\begin{itemize}
+%\item	First bullet;
+%\item	Second bullet;
+%\item	Third bullet.
+%\end{itemize}
+%
+%Numbered lists can be added as follows:
+%\begin{enumerate}
+%\item	First item; 
+%\item	Second item;
+%\item	Third item.
+%\end{enumerate}
+%
+%The text continues here. 
+%
+%\subsection{Figures, Tables and Schemes}
+%
+%All figures and tables should be cited in the main text as Figure~\ref{fig1}, Table~\ref{tab1}, etc.
+%
+%\begin{figure}[H]
+%\includegraphics[width=10.5 cm]{Definitions/logo-mdpi}
+%\caption{This is a figure. Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.\label{fig1}}
+%\end{figure}   
+%\unskip
+%
+%\begin{table}[H] 
+%\caption{This is a table caption. Tables should be placed in the main text near to the first time they are~cited.\label{tab1}}
+%\newcolumntype{C}{>{\centering\arraybackslash}X}
+%\begin{tabularx}{\textwidth}{CCC}
+%\toprule
+%\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
+%\midrule
+%Entry 1		& Data			& Data\\
+%Entry 2		& Data			& Data \textsuperscript{1}\\
+%\bottomrule
+%\end{tabularx}
+%\noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
+%\end{table}
+%
+%The text continues here (Figure~\ref{fig2} and Table~\ref{tab2}).
+%
+%% Example of a figure that spans the whole page width. The same concept works for tables, too.
+%\begin{figure}[H]
+%\begin{adjustwidth}{-\extralength}{0cm}
+%\centering
+%\includegraphics[width=15.5cm]{Definitions/logo-mdpi}
+%\end{adjustwidth}
+%\caption{This is a wide figure.\label{fig2}}
+%\end{figure}  
+%
+%\begin{table}[H]
+%\caption{This is a wide table.\label{tab2}}
+%	\begin{adjustwidth}{-\extralength}{0cm}
+%		\newcolumntype{C}{>{\centering\arraybackslash}X}
+%		\begin{tabularx}{\fulllength}{CCCC}
+%			\toprule
+%			\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}     & \textbf{Title 4}\\
+%			\midrule
+%\multirow[m]{3}{*}{Entry 1 *}	& Data			& Data			& Data\\
+%			  	                   & Data			& Data			& Data\\
+%			             	      & Data			& Data			& Data\\
+%                   \midrule
+%\multirow[m]{3}{*}{Entry 2}    & Data			& Data			& Data\\
+%			  	                  & Data			& Data			& Data\\
+%			             	     & Data			& Data			& Data\\
+%                   \midrule
+%\multirow[m]{3}{*}{Entry 3}    & Data			& Data			& Data\\
+%			  	                 & Data			& Data			& Data\\
+%			             	    & Data			& Data			& Data\\
+%                  \midrule
+%\multirow[m]{3}{*}{Entry 4}   & Data			& Data			& Data\\
+%			  	                 & Data			& Data			& Data\\
+%			             	    & Data			& Data			& Data\\
+%			\bottomrule
+%		\end{tabularx}
+%	\end{adjustwidth}
+%	\noindent{\footnotesize{* Tables may have a footer.}}
+%\end{table}
+%
+%%\begin{listing}[H]
+%%\caption{Title of the listing}
+%%\rule{\columnwidth}{1pt}
+%%\raggedright Text of the listing. In font size footnotesize, small, or normalsize. Preferred format: left aligned and single spaced. Preferred border format: top border line and bottom border line.
+%%\rule{\columnwidth}{1pt}
+%%\end{listing}
+%
+%Text.
+%
+%Text.
+%
+%\subsection{Formatting of Mathematical Components}
+%
+%This is the example 1 of equation:
+%\begin{linenomath}
+%\begin{equation}
+%a = 1,
+%\end{equation}
+%\end{linenomath}
+%the text following an equation need not be a new paragraph. Please punctuate equations as regular text.
+%%% If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph.
+%
+%This is the example 2 of equation:
+%\begin{adjustwidth}{-\extralength}{0cm}
+%\begin{equation}
+%a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z
+%\end{equation}
+%\end{adjustwidth}
+%
+%% Example of a page in landscape format (with table and table footnote).
+%%\startlandscape
+%%\begin{table}[H] %% Table in wide page
+%%\caption{This is a very wide table.\label{tab3}}
+%%	\begin{tabularx}{\textwidth}{CCCC}
+%%		\toprule
+%%		\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}	& \textbf{Title 4}\\
+%%		\midrule
+%%		Entry 1		& Data			& Data			& This cell has some longer content that runs over two lines.\\
+%%		Entry 2		& Data			& Data			& Data\textsuperscript{1}\\
+%%		\bottomrule
+%%	\end{tabularx}
+%%	\begin{adjustwidth}{+\extralength}{0cm}
+%%		\noindent\footnotesize{\textsuperscript{1} This is a table footnote.}
+%%	\end{adjustwidth}
+%%\end{table}
+%%\finishlandscape
+%
+%
+%Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows:
+%%% Example of a theorem:
+%\begin{Theorem}
+%Example text of a theorem.
+%\end{Theorem}
+%
+%The text continues here. Proofs must be formatted as follows:
+%
+%%% Example of a proof:
+%\begin{proof}[Proof of Theorem 1]
+%Text of the proof. Note that the phrase ``of Theorem 1'' is optional if it is clear which theorem is being referred to.
+%\end{proof}
+%The text continues here.
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Optional
+%\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+%\appendixstart
+%\appendix
+%\section[\appendixname~\thesection]{}
+%\subsection[\appendixname~\thesubsection]{}
+%The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
+%
+%\begin{table}[H] 
+%\caption{This is a table caption.\label{tab5}}
+%\newcolumntype{C}{>{\centering\arraybackslash}X}
+%\begin{tabularx}{\textwidth}{CCC}
+%\toprule
+%\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
+%\midrule
+%Entry 1		& Data			& Data\\
+%Entry 2		& Data			& Data\\
+%\bottomrule
+%\end{tabularx}
+%\end{table}
+%
+%\section[\appendixname~\thesection]{}
+%All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
+%
+%\conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflicts of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.} 
