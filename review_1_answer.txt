@@ -60,14 +60,10 @@ Page 13, Table 3
 Page 14, Table 4
 
 Recommendation 3: Clarify in the text why MobileNetV3 results are not included.
-Response 3: Thank you for this valuable recommendation. We fully agree that reporting 95% confidence intervals and performing paired significance testing would greatly strengthen the statistical reliability of the comparisons, especially for small deltas in the CIFAR-10 experiments.
-However, this study was not originally planned with full fold-level archival of intermediate predictions and metrics. As a result:
-1. Some of the required per-fold raw outputs are no longer available,
-2. Which makes it impossible to compute confidence intervals and paired tests retrospectively for all backbone–scale combinations.
-We now clearly acknowledge this limitation in the manuscript.
-At the same time, we recognize the importance of this methodology for future research. Therefore we added a statement in the Discussion (Limitations and Future Research) that future experiments will include full fold-level logging
-These revisions can be found in:
-Page 17, Section 6.3 Limitations and Future Research, Paragraph 3, Lines 404-407
+Response 3: Thank you for this valuable recommendation. We fully agree with the reviewer that the previous version created a mismatch between the abstract/introductory claims and the LCNet-only results presented in the manuscript.
+To address this issue, we have revised the manuscript to ensure full consistency:
+1.	We removed the statements referring to MobileNetV3 divergence from the Abstract, since this study focuses exclusively on LCNet backbones.
+2.	We clarified in the ‘Literature Review and Problem Statement’ section that the MobileNetV3 vs. LCNet comparison was extensively conducted in our previous publication, and that the present work builds upon those findings while focusing solely on LCNet.
 
 
 Recommendation 4: List all hyperparameters, number of trainable PQC parameters, seeds, and stopping criteria. Include hardware details and wall-clock training/inference times to contextualize practicality.
@@ -82,6 +78,8 @@ To address this, we expanded the Workflow section by adding all available and re
 	•	software version,
 	•	and hardware environment.
 We also clarified why direct wall-clock time comparisons between classical and hybrid models were not included, due to preprocessing overhead associated with generating quantum-enhanced channels, which is independent of the training loop and would bias the comparison.
+These revisions can be found in:
+Page 9, Section 4.4 Workflow, Paragraphs 1, Lines 299-307
 
 
 We additionally incorporated references to prior research employing comparable hybrid quantum–classical configurations to further contextualize the methodological choices used in this study.
