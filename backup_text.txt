@@ -1,0 +1,7 @@
+However, this study was not originally planned with full fold-level archival of intermediate predictions and metrics. As a result:
+1. Some of the required per-fold raw outputs are no longer available,
+2. Which makes it impossible to compute confidence intervals and paired tests retrospectively for all backbone–scale combinations.
+We now clearly acknowledge this limitation in the manuscript.
+At the same time, we recognize the importance of this methodology for future research. Therefore we added a statement in the Discussion (Limitations and Future Research) that future experiments will include full fold-level logging
+These revisions can be found in:
+Page 17, Section 6.3 Limitations and Future Research, Paragraph 3, Lines 404-407

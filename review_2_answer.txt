@@ -1,0 +1,66 @@
+Review 2 answer:
+
+Comment 1: The study connects the stability of the model with the randomness coming from the quantum part. But is this attribute truly because of entanglement and superposition or more from the simulation noise? Is it possible for someone to actually test this on actual quantum hardware?
+Answer 1: We thank the reviewer for this insightful question. In the present work, all quantum layers are implemented using the Pennylane simulation framework (Section 4.4), with shallow four-qubit circuits based on single-qubit Ry/Rx rotations and measurement-based feature extraction. Thus, the observed “randomness” comes from stochastic sampling of quantum measurement outcomes in the simulator rather than from an explicit hardware noise model. We did not attempt to disentangle the contributions of superposition/entanglement from those of sampling stochasticity, and we now clarify this limitation in the revised manuscript.
+At the same time, the circuits used here are deliberately shallow and NISQ-oriented, and, as already mentioned in Section 4.4, they can in principle be mapped directly to near-term quantum hardware. We have expanded the Discussion to state more explicitly that validating these stability effects on real quantum devices is an important direction for future work and that our current results should be interpreted as simulator-based evidence rather than hardware benchmarks.
+These revisions can be found in:
+Page 8, Section 4.4 (last paragraph), Lines 253-262
+Page 16, Section 6.3 (last paragraph), Lines 479-487
+
+Comment 2: The authors can also include statistical significance testing (e.g., paired t-tests or Wilcoxon) for AUC/accuracy differences etc.
+Answer 2: We thank the reviewer for this important suggestion. In this study, all results are based on K-fold cross-validation with K = 6, which would indeed provide a natural basis for paired statistical tests between classical and hybrid models. We fully agree that including formal significance testing (e.g., paired tests on fold-wise AUC and accuracy values) is crucial for increasing the statistical reliability of the comparison.
+However, this analysis was unfortunately not planned at the beginning of the study, and the intermediate working data for individual folds (in particular, complete per-fold prediction outputs for all experiments) were not consistently archived. As a result, it is no longer possible to reconstruct the full set of fold-wise metrics in a reliable way for all backbone–variant combinations, and therefore we cannot perform a complete and methodologically sound significance analysis retrospectively at this stage.
+We acknowledge this as a limitation of the present work and will explicitly state it in the manuscript. At the same time, we have already taken this recommendation into account in the design of our ongoing and future studies, where fold-wise metrics and predictions are stored systematically from the outset so that paired statistical tests can be performed as part of the standard evaluation protocol.
+
+Comment 3: Did the hyperparameter tuning perform equally between the classic and hybrid networks in order to avoid optimization bias?
+Answer 3: Yes. To avoid optimization bias, classical and hybrid models were trained under exactly the same optimization configuration for a given backbone and dataset. As detailed in the Methods (Section 4.x), all experiments use:
+•	The same optimizer (Adam),
+•	The same learning rate (10^{-3}),
+•	The same batch size (64),
+•	The same number of epochs (10),
+•	The same data splits and cross-validation protocol, and
+•	The same fixed random seed (42) for NumPy, TensorFlow, and Python.
+We did not perform separate hyperparameter tuning for hybrid vs. classical variants; within each backbone/scale pair, the only architectural difference is the inclusion of the quantum layer. We have added an explicit sentence in the Methods section to make this point clear and to emphasize that the comparison is not influenced by asymmetric tuning.
+These revisions can be found in:
+Page 9, Section 4.4 Workflow, Paragraphs 1, Lines 299-307
+
+Comment 4: The Figure and Table legends could be more explanatory. 
+Answer 4: We thank the reviewer for this helpful remark. In the revised manuscript, we have expanded the captions for all main figures and tables to make them more self-contained and easier to interpret without constantly referring back to the text.
+These revisions can be found in:
+Page 6, Figure 1 Caption
+Page 7, Figure 2 Caption
+Page 8, Figure 3 Caption
+Page 9, Figure 4 Caption
+Page 10, Figure 5 Caption
+Page 11, Table 1 Caption
+Page 11, Figure 6 Caption
+Page 12, Table 2 Caption
+Page 12, Figure 7 Caption
+Page 14, Table 3 Caption
+Page 14, Figure 8 Caption
+Page 15, Table 4 Caption
+Page 15, Figure 9 Caption
+
+
+
+Comment 5: Is the desired performance still observed when the networks becomes bigger or it disappears?
+Answer 5: We appreciate this question and agree that scale is crucial for interpreting the usefulness of hybridization. As shown in the LCNet results for CIFAR-10 and DermaMNIST (Tables 1–4 and Figures 6–9), the behavior is scale-dependent:
+•	For smaller and mid-sized backbones (LCNet050, LCNet075), the hybrid models achieve higher mean accuracy and AUC while also reducing variability across folds.
+•	For larger backbones (e.g., LCNet100 and LCNet200), the advantage of the hybrid models diminishes and, in several cases, the classical models regain a slight edge in both accuracy and AUC, in line with the trends already summarized in the Abstract and Discussion.
+This clarifies that the “desired performance” is scale-limited rather than monotonic in model size.
+
+Comment 6: You may also consider including additional validation criteria (e.g., confusion matrices) 
+Answer 6: We thank the reviewer for this valuable suggestion. We fully agree that additional validation criteria such as confusion matrices and more detailed per-class analyses would provide a deeper view of model behavior, especially for the imbalanced DermaMNIST dataset.
+However, implementing and integrating these analyses in a consistent way across all backbones and variants would require a substantial amount of additional processing, figure/table preparation, and discussion. This goes beyond the scope and planned objectives of the present work, which focuses primarily on comparing global metrics (accuracy and macro-/micro-AUC) between classical and hybrid architectures.
+We therefore decided not to extend the current manuscript with these additional validation plots to keep the study focused and within a reasonable length. At the same time, we consider this an important direction and will take this recommendation into account when designing our follow-up studies, where more extensive class-level evaluation (including confusion matrices) will be incorporated from the outset.
+
+
+
+
+
+
+
+
+
+
+
